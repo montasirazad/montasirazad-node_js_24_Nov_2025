@@ -51,4 +51,5 @@ app.listen(port, () => console.log(`Listening to port: ${port}`));
 // app.methods
 // app.post
 // sub app of main App
-// app.params */
+// app.params
+// app.locals */
