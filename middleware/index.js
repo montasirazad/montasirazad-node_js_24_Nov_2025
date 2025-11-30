@@ -11,7 +11,7 @@ const myMiddleware = (req, res, next) => {
 
 const logger = (req, res, next) => {
   console.log(`${req.method} -- ${new Date(Date.now()).toLocaleString()}`);
-  next();
+  //throw new Error('There is an error')
 };
 
 app.use(cookieParser());
@@ -28,4 +28,10 @@ app.get("/about", (req, res) => {
   res.send(`This is about page and method is ${req.method}`);
 });
 
+const errorMiddleware = (err, req, res, next) => {
+  console.log(err);
+  res.status(500).send("server side error");
+};
+
+adminRouter.use(errorMiddleware);
 app.listen(PORT, () => console.log(`Listening to port ${PORT}`));
