@@ -30,10 +30,19 @@ const upload = multer({
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello from index_4.js");
+  res.send("Hello from index_4.js"); // aa
 });
 
 app.post("/", upload.array("avatar", 2), (req, res) => {
   res.send("success");
+});
+
+app.use((err, req, res, next) => {
+  if (err) {
+    console.log(err);
+    res.send(err);
+  } else {
+    res.send("success");
+  }
 });
 app.listen(3000, () => console.log("listening to port 3000"));
