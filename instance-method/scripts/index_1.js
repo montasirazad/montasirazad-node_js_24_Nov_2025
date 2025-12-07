@@ -1,1 +1,1 @@
-console.log(200);
+ console.log(process.env.NODE_ENV);
